@@ -1,0 +1,48 @@
+// !$*UTF8*$!
+{ archiveVersion = 1; classes = {}; objectVersion = 60; objects = {
+/* Begin PBXBuildFile section */
+000000000000000000000015 = {isa = PBXBuildFile; fileRef = 00000000000000000000000B; };
+000000000000000000000016 = {isa = PBXBuildFile; fileRef = 00000000000000000000000C; };
+000000000000000000000017 = {isa = PBXBuildFile; fileRef = 00000000000000000000000D; };
+000000000000000000000018 = {isa = PBXBuildFile; fileRef = 00000000000000000000000D; };
+000000000000000000000019 = {isa = PBXBuildFile; fileRef = 00000000000000000000000A; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+000000000000000000000028 = {isa = PBXBuildFile; fileRef = 000000000000000000000027; };
+000000000000000000000029 = {isa = PBXBuildFile; fileRef = 000000000000000000000027; };
+00000000000000000000002B = {isa = PBXBuildFile; fileRef = 00000000000000000000002A; };
+/* End PBXBuildFile section */
+000000000000000000000024 = {isa = PBXContainerItemProxy; containerPortal = 000000000000000000000001; proxyType = 1; remoteGlobalIDString = 000000000000000000000008; remoteInfo = PeekForgePreview; };
+000000000000000000000023 = {isa = PBXTargetDependency; target = 000000000000000000000008; targetProxy = 000000000000000000000024; };
+/* Begin PBXFileReference section */
+000000000000000000000009 = {isa = PBXFileReference; explicitFileType = wrapper.application; path = PeekForge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+00000000000000000000000A = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; path = PeekForgePreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+00000000000000000000000B = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekForgeApp.swift; sourceTree = "<group>"; };
+00000000000000000000000C = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+00000000000000000000000D = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContent.swift; sourceTree = "<group>"; };
+00000000000000000000000E = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+00000000000000000000000F = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+000000000000000000000027 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuredPreview.swift; sourceTree = "<group>"; };
+00000000000000000000002A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+000000000000000000000010 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000015, 000000000000000000000017, 000000000000000000000028, 00000000000000000000002B, ); runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000011 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (000000000000000000000016, 000000000000000000000018, 000000000000000000000029, ); runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000012 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000013 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000014 = {isa = PBXCopyFilesBuildPhase; buildActionMask = 2147483647; dstPath = ""; dstSubfolderSpec = 13; files = (000000000000000000000019, ); name = "Embed App Extensions"; runOnlyForDeploymentPostprocessing = 0; };
+000000000000000000000002 = {isa = PBXGroup; children = (000000000000000000000004, 000000000000000000000005, 000000000000000000000006, 000000000000000000000003, ); sourceTree = "<group>"; };
+000000000000000000000004 = {isa = PBXGroup; children = (00000000000000000000000B, 00000000000000000000002A, 00000000000000000000000E, ); path = PeekForge; sourceTree = "<group>"; };
+000000000000000000000005 = {isa = PBXGroup; children = (00000000000000000000000C, 00000000000000000000000F, ); path = PeekForgePreview; sourceTree = "<group>"; };
+000000000000000000000006 = {isa = PBXGroup; children = (00000000000000000000000D, 000000000000000000000027, ); path = Shared; sourceTree = "<group>"; };
+000000000000000000000003 = {isa = PBXGroup; children = (000000000000000000000009, 00000000000000000000000A, ); name = Products; sourceTree = "<group>"; };
+000000000000000000000001 = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 2660; TargetAttributes = {000000000000000000000007 = {CreatedOnToolsVersion = 26.0; }; 000000000000000000000008 = {CreatedOnToolsVersion = 26.0; }; }; }; buildConfigurationList = 00000000000000000000001C; compatibilityVersion = "Xcode 16.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base, ); mainGroup = 000000000000000000000002; productRefGroup = 000000000000000000000003; projectDirPath = ""; projectRoot = ""; targets = (000000000000000000000007, 000000000000000000000008, ); };
+000000000000000000000007 = {isa = PBXNativeTarget; buildConfigurationList = 00000000000000000000001A; buildPhases = (000000000000000000000010, 000000000000000000000012, 000000000000000000000014, ); buildRules = (); dependencies = (000000000000000000000023, ); name = PeekForge; productName = PeekForge; productReference = 000000000000000000000009; productType = "com.apple.product-type.application"; };
+000000000000000000000008 = {isa = PBXNativeTarget; buildConfigurationList = 00000000000000000000001B; buildPhases = (000000000000000000000011, 000000000000000000000013, ); buildRules = (); dependencies = (); name = PeekForgePreview; productName = PeekForgePreview; productReference = 00000000000000000000000A; productType = "com.apple.product-type.app-extension"; };
+00000000000000000000001A = {isa = XCConfigurationList; buildConfigurations = (00000000000000000000001D, 00000000000000000000001E, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+00000000000000000000001B = {isa = XCConfigurationList; buildConfigurations = (00000000000000000000001F, 000000000000000000000020, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+00000000000000000000001C = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000021, 000000000000000000000022, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+000000000000000000000021 = {isa = XCBuildConfiguration; buildSettings = {SWIFT_VERSION = 5.0; MACOSX_DEPLOYMENT_TARGET = 15.0; SDKROOT = macosx;}; name = Debug; };
+000000000000000000000022 = {isa = XCBuildConfiguration; buildSettings = {SWIFT_VERSION = 5.0; MACOSX_DEPLOYMENT_TARGET = 15.0; SDKROOT = macosx;}; name = Release; };
+00000000000000000000001D = {isa = XCBuildConfiguration; buildSettings = {PRODUCT_BUNDLE_IDENTIFIER = com.example.PeekForge; INFOPLIST_FILE = PeekForge/Info.plist; GENERATE_INFOPLIST_FILE = YES; PRODUCT_NAME = PeekForge; MARKETING_VERSION = 0.4.0; CURRENT_PROJECT_VERSION = 4; SWIFT_VERSION = 5.0; MACOSX_DEPLOYMENT_TARGET = 15.0; OTHER_LDFLAGS = ("-lsqlite3",); CODE_SIGNING_ALLOWED = NO;}; name = Debug; };
+00000000000000000000001E = {isa = XCBuildConfiguration; buildSettings = {PRODUCT_BUNDLE_IDENTIFIER = com.example.PeekForge; INFOPLIST_FILE = PeekForge/Info.plist; GENERATE_INFOPLIST_FILE = YES; PRODUCT_NAME = PeekForge; MARKETING_VERSION = 0.4.0; CURRENT_PROJECT_VERSION = 4; SWIFT_VERSION = 5.0; MACOSX_DEPLOYMENT_TARGET = 15.0; OTHER_LDFLAGS = ("-lsqlite3",); CODE_SIGNING_ALLOWED = NO;}; name = Release; };
+00000000000000000000001F = {isa = XCBuildConfiguration; buildSettings = {PRODUCT_BUNDLE_IDENTIFIER = com.example.PeekForge.Preview; INFOPLIST_FILE = PeekForgePreview/Info.plist; GENERATE_INFOPLIST_FILE = YES; PRODUCT_NAME = PeekForgePreview; MARKETING_VERSION = 0.4.0; CURRENT_PROJECT_VERSION = 4; SWIFT_VERSION = 5.0; MACOSX_DEPLOYMENT_TARGET = 15.0; OTHER_LDFLAGS = ("-lsqlite3",); CODE_SIGNING_ALLOWED = NO;}; name = Debug; };
+000000000000000000000020 = {isa = XCBuildConfiguration; buildSettings = {PRODUCT_BUNDLE_IDENTIFIER = com.example.PeekForge.Preview; INFOPLIST_FILE = PeekForgePreview/Info.plist; GENERATE_INFOPLIST_FILE = YES; PRODUCT_NAME = PeekForgePreview; MARKETING_VERSION = 0.4.0; CURRENT_PROJECT_VERSION = 4; SWIFT_VERSION = 5.0; MACOSX_DEPLOYMENT_TARGET = 15.0; OTHER_LDFLAGS = ("-lsqlite3",); CODE_SIGNING_ALLOWED = NO;}; name = Release; };
+}; rootObject = 000000000000000000000001; }
