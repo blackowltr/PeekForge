@@ -8,7 +8,7 @@ GitHub Releases sayfasındaki `PeekForge-macOS.zip` dosyasını indirin ve `Peek
 
 ## Otomatik güncelleme
 
-İlk açılışta kullanıcı hesabınız için `com.peekforge.update` adlı bir LaunchAgent kurulur. Bu görev, uygulama açık kalmadan günde bir kez GitHub'daki en son kararlı sürümü kontrol eder. Yeni sürüm varsa arşivi indirir, gömülü Ed25519 açık anahtarıyla imzayı doğrular, uygulama paketinin kimliğini ve sürümünü kontrol eder, ardından `~/Applications/PeekForge.app` dosyasını yeniler. Önceki sürüm `~/Applications/PeekForge.previous.app` olarak saklanır. Veri GitHub'a gönderilmez; yalnızca sürüm sorgusu yapılır.
+İlk açılışta kullanıcı hesabınız için `com.peekforge.update` adlı bir LaunchAgent kurulur. Bu görev, uygulama açık kalmadan günde bir kez GitHub'daki en son kararlı sürümü kontrol eder. Yeni sürüm varsa arşivi indirir, gömülü Ed25519 açık anahtarıyla imzayı doğrular, uygulama paketinin kimliğini ve sürümünü kontrol eder, ardından `~/Applications/PeekForge.app` dosyasını yeniler. Önceki sürüm `~/Applications/PeekForge.previous-<sürüm>-<kimlik>.app` olarak saklanır. Veri GitHub'a gönderilmez; yalnızca sürüm sorgusu yapılır.
 
 Güncellemeleri devre dışı bırakmak için `~/Library/LaunchAgents/com.peekforge.update.plist` dosyasını kaldırın. Tek seferlik kontrol için `~/Applications/PeekForge.app/Contents/MacOS/PeekForge --check-updates` komutunu çalıştırabilirsiniz.
 

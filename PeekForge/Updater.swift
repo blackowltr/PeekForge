@@ -95,11 +95,11 @@ enum Updater {
               bundle.bundleIdentifier == bundleID,
               bundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String == expectedVersion,
               process("/usr/bin/codesign", ["--verify", "--deep", "--strict", extracted.path]) == 0 else { throw UpdateError.invalidApplication }
-        let stage = target.deletingLastPathComponent().appendingPathComponent(".PeekForge.next.app")
-        let backup = target.deletingLastPathComponent().appendingPathComponent("PeekForge.previous.app")
-        if fm.fileExists(atPath: stage.path) { try fm.removeItem(at: stage) }
+        let previousVersion = (Bundle(url: target)?.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String) ?? "unknown"
+        let suffix = UUID().uuidString.prefix(8)
+        let stage = target.deletingLastPathComponent().appendingPathComponent(".PeekForge.next-\(suffix).app")
+        let backup = target.deletingLastPathComponent().appendingPathComponent("PeekForge.previous-\(previousVersion)-\(suffix).app")
         try fm.moveItem(at: extracted, to: stage)
-        if fm.fileExists(atPath: backup.path) { try fm.removeItem(at: backup) }
         do {
             try fm.moveItem(at: target, to: backup)
             do { try fm.moveItem(at: stage, to: target) }
@@ -108,8 +108,8 @@ enum Updater {
             // Some managed Mac environments allow writing the app but block renaming it.
             // The signed archive is already verified; keep a full backup before copying.
             if !fm.fileExists(atPath: target.path) { throw error }
-            try fm.copyItem(at: target, to: backup)
-            guard process("/usr/bin/ditto", [stage.path, target.path]) == 0,
+            guard process("/usr/bin/ditto", [target.path, backup.path]) == 0,
+                  process("/usr/bin/ditto", [stage.path, target.path]) == 0,
                   process("/usr/bin/codesign", ["--verify", "--deep", "--strict", target.path]) == 0 else {
                 _ = process("/usr/bin/ditto", [backup.path, target.path])
                 throw UpdateError.invalidApplication
