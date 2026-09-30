@@ -17,7 +17,8 @@ mkdir -p "$release_dir"
 archive="$release_dir/PeekForge-macOS.zip"
 signature="$release_dir/PeekForge-macOS.sig"
 ditto -c -k --sequesterRsrc --keepParent "$project_dir/../PeekForge.app" "$archive"
-swiftc -parse-as-library "$project_dir/Tools/SignRelease.swift" -o "$release_dir/sign-release"
+mkdir -p "$release_dir/module-cache"
+CLANG_MODULE_CACHE_PATH="$release_dir/module-cache" SWIFT_MODULE_CACHE_PATH="$release_dir/module-cache" swiftc -parse-as-library -module-cache-path "$release_dir/module-cache" "$project_dir/Tools/SignRelease.swift" -o "$release_dir/sign-release"
 "$release_dir/sign-release" --sign "$signing_key" "$archive" "$signature"
 version=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$project_dir/../PeekForge.app/Contents/Info.plist")
 git -C "$project_dir" push origin HEAD:main
