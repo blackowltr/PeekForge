@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1221">
+  <meta name="description" content="PeekForge, Finder'da Boşluk tuşuyla JSON, kod, veritabanı ve arşivleri hızlıca önizleyen yerel macOS uzantısı.">
+  <title>PeekForge — Finder'da daha iyi önizleme</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1221'/%3E%3Cpath d='M20 15h18l9 9v25H20z' fill='none' stroke='%2368a8ff' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M38 15v10h9M27 37h13M27 44h9' fill='none' stroke='%2368a8ff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div><div class="ambient ambient-b" aria-hidden="true"></div>
+  <header class="site-header wrap">
+    <a class="brand" href="#baslangic" aria-label="PeekForge ana sayfa"><span class="brand-icon" aria-hidden="true">⌘</span><span>PeekForge</span></a>
+    <nav aria-label="Sayfa bölümleri"><a href="#ozellikler">Özellikler</a><a href="#destek">Dosya türleri</a><a href="#kurulum">Kurulum</a></nav>
+    <a class="header-cta" href="https://github.com/blackowltr/PeekForge/releases/latest/download/PeekForge-macOS.zip">Mac için indir <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="baslangic">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> macOS için yerel Quick Look uzantısı</p>
+        <h1 id="hero-title">Boşluk tuşu.<br><em>Daha fazlası.</em></h1>
+        <p class="hero-lead">Finder'da gezinirken dosyayı açmadan içine bakın. Kod, JSON, tablolar, veritabanları ve arşivler tek tuş uzağınızda.</p>
+        <div class="hero-actions"><a class="button button-primary" href="https://github.com/blackowltr/PeekForge/releases/latest/download/PeekForge-macOS.zip">PeekForge'u indir <span aria-hidden="true">↓</span></a><a class="button button-quiet" href="#nasil-calisir">Nasıl çalışır <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-note">Mac'inizde çalışır · Hesap gerekmez · Dosyalarınız gönderilmez</p>
+      </div>
+      <div class="demo" aria-label="PeekForge önizleme örneği">
+        <div class="demo-top"><div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div><span class="demo-title">PeekForge <b>Quick Look</b></span><span class="demo-key">SPACE</span></div>
+        <div class="demo-body">
+          <div class="demo-sidebar"><div class="sidebar-label">DOSYALAR</div><button class="file active" type="button" data-file="json" aria-pressed="true"><span class="file-symbol json">{ }</span>config.json</button><button class="file" type="button" data-file="csv" aria-pressed="false"><span class="file-symbol csv">▤</span>people.csv</button><button class="file" type="button" data-file="sqlite" aria-pressed="false"><span class="file-symbol sqlite">◫</span>app.sqlite</button><button class="file" type="button" data-file="zip" aria-pressed="false"><span class="file-symbol zip">▣</span>assets.zip</button></div>
+          <div class="preview-area"><div class="preview-heading"><span id="preview-name">config.json</span><span id="preview-type">JSON · biçimlendirilmiş</span></div><pre id="preview-code" aria-live="polite"></pre><div class="preview-footer"><span>Yalnızca önizleme</span><span>Yerel işlem</span></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="trustbar wrap" aria-label="Temel avantajlar"><div><strong>Finder'ın içinde</strong><span>Ek pencere yok</span></div><div><strong>Tek tuşla</strong><span>Dosyayı seç, Boşluk'a bas</span></div><div><strong>Kaynak dostu</strong><span>Sınırlı okuma, sınırlı çıktı</span></div></section>
+    <section class="section wrap" id="nasil-calisir"><div class="section-heading"><p class="kicker">AKIŞI BOZMADAN</p><h2>Göz at. Anla. Devam et.</h2><p>Bir dosyanın doğru dosya olup olmadığını görmek için uygulama açmanız gerekmez.</p></div><div class="steps"><article><span class="step-number">01</span><h3>Finder'da seç</h3><p>Dosyaların arasında normal şekilde gezinmeye devam edin.</p></article><article><span class="step-number">02</span><h3>Boşluk'a bas</h3><p>PeekForge içeriği Finder'ın Quick Look penceresinde gösterir.</p></article><article><span class="step-number">03</span><h3>İçeriği gör</h3><p>Metni seçin, JSON'u okuyun veya arşivin içindekileri kontrol edin.</p></article></div></section>
+    <section class="section feature-section" id="ozellikler"><div class="wrap feature-layout"><div><p class="kicker">KÜÇÜK, HIZLI, YEREL</p><h2>Önizleme için gereken kadar çalışır.</h2><p class="feature-lead">PeekForge dosyaları Mac'inizde işler. Büyük içeriklerde yalnızca önizleme için gereken bölüm okunur; arşivler açılmadan listelenir.</p><div class="feature-points"><div><span class="point-icon">◉</span><div><h3>Kontrollü okuma</h3><p>Metinlerde 2 MB, CSV ve TSV'de 256 KB sınırı.</p></div></div><div><span class="point-icon">⌁</span><div><h3>Hafif görünüm</h3><p>Renklendirme yalnızca küçük metinlerde uygulanır.</p></div></div><div><span class="point-icon">⌑</span><div><h3>Gizlilik önce gelir</h3><p>.env değerleri gizlenir; dosyalarınız ağa yüklenmez.</p></div></div></div></div><div class="stat-card"><div class="stat-label">ÖNİZLEME SINIRLARI</div><div class="stat-row"><span>Metin</span><strong>2 MB</strong></div><div class="stat-row"><span>CSV / TSV</span><strong>50 satır</strong></div><div class="stat-row"><span>JSONL</span><strong>200 kayıt</strong></div><div class="stat-row"><span>Arşiv / klasör</span><strong>100 öğe</strong></div><p>Hızlı bakış için tasarlandı; orijinal dosyada değişiklik yapmaz.</p></div></div></section>
+    <section class="section wrap" id="destek"><div class="section-heading"><p class="kicker">DOSYA TÜRLERİ</p><h2>Her gün açtığınız dosyalara hızlı bakış.</h2></div><div class="format-grid"><article><span class="format-icon blue">{ }</span><h3>Veri ve yapılandırma</h3><p>JSON, JSONL, NDJSON, YAML, TOML, INI, .env</p></article><article><span class="format-icon violet">&lt;/&gt;</span><h3>Metin ve kod</h3><p>Markdown, kaynak kod, günlük dosyaları, UTF-8 metin</p></article><article><span class="format-icon teal">▤</span><h3>Tablo ve veritabanı</h3><p>CSV, TSV, SQLite, .sqlite3, .db</p></article><article><span class="format-icon amber">▣</span><h3>Arşiv ve klasör</h3><p>ZIP, TAR ve klasör içeriği</p></article></div><p class="format-note">macOS, aynı dosya türünde başka bir Quick Look sağlayıcısına öncelik verebilir.</p></section>
+    <section class="section install-section" id="kurulum"><div class="wrap install-layout"><div><p class="kicker">MAC'İNİZDE KULLANIN</p><h2>Kurulum birkaç adım.</h2><p>macOS 15 veya sonrası gerekir. İlk açılışta macOS uygulamayı engellerse Finder’da sağ tıklayıp Aç seçin. Sonrasında PeekForge imzalı güncellemeleri günlük olarak denetler.</p><a class="button button-primary" href="https://github.com/blackowltr/PeekForge/releases/latest/download/PeekForge-macOS.zip">Mac için indir <span aria-hidden="true">↓</span></a></div><ol><li><strong>Mac için indir</strong> düğmesine basın ve ZIP dosyasını açın.</li><li><strong>PeekForge.app</strong> dosyasını kendi <strong>Uygulamalar</strong> klasörünüze (<code>~/Applications</code>) taşıyın; ardından bir kez açın.</li><li>Sistem Ayarları → Genel → Giriş Öğeleri ve Uzantılar → <strong>Quick Look</strong> bölümünde PeekForgePreview'ı etkinleştirin.</li><li>Finder'da bir dosya seçip <strong>Boşluk</strong> tuşuna basın. Yeni sürümler GitHub'dan otomatik gelir.</li></ol></div></section>
+  </main>
+  <footer class="wrap"><a class="brand" href="#baslangic"><span class="brand-icon" aria-hidden="true">⌘</span><span>PeekForge</span></a><span>Finder'da daha fazlasını görün.</span><a href="https://github.com/blackowltr/PeekForge" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#baslangic">Başa dön ↑</a></footer>
+</body>
+</html>
