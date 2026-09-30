@@ -2,6 +2,22 @@
 
 Finder'da Boşluk tuşuyla çalışan yerel Quick Look önizlemesi. Ayrı bir pencere veya Dock uygulaması açmaz.
 
+## Önizleme ekranları
+
+Aşağıdaki görseller, PeekForge'un Quick Look uzantısında kullanılan gerçek önizleme görünümünden örnek dosyalarla alınmıştır.
+
+**JSON — düzenlenmiş içerik ve sözdizimi vurgusu**
+
+![PeekForge JSON dosyası önizlemesi](docs/screenshots/json.png)
+
+**CSV — hizalanmış tablo önizlemesi**
+
+![PeekForge CSV dosyası önizlemesi](docs/screenshots/csv.png)
+
+**.env — gizli değerleri maskeleyen önizleme**
+
+![PeekForge .env dosyası önizlemesi](docs/screenshots/env.png)
+
 ## Kurulum
 
 GitHub Releases sayfasındaki `PeekForge-macOS.zip` dosyasını indirin ve `PeekForge.app` uygulamasını `~/Applications` klasörüne taşıyın. Bir kez açın. Sistem Ayarları → Genel → Giriş Öğeleri ve Uzantılar → Quick Look bölümünde PeekForgePreview'ı etkinleştirin.
