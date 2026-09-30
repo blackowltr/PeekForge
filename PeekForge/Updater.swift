@@ -28,29 +28,23 @@ enum Updater {
     static func installAgent() throws {
         let fm = FileManager.default
         let home = fm.homeDirectoryForCurrentUser
-        let support = home.appendingPathComponent("Library/Application Support/PeekForge", isDirectory: true)
         let agents = home.appendingPathComponent("Library/LaunchAgents", isDirectory: true)
-        try fm.createDirectory(at: support, withIntermediateDirectories: true)
         try fm.createDirectory(at: agents, withIntermediateDirectories: true)
-        let target = support.appendingPathComponent("PeekForgeUpdater")
-        let temporary = support.appendingPathComponent("PeekForgeUpdater.new")
-        if fm.fileExists(atPath: temporary.path) { try fm.removeItem(at: temporary) }
-        guard let executable = Bundle.main.executableURL else { throw UpdateError.invalidApplication }
-        try fm.copyItem(at: executable, to: temporary)
-        if fm.fileExists(atPath: target.path) { try fm.removeItem(at: target) }
-        try fm.moveItem(at: temporary, to: target)
+        let executable = home.appendingPathComponent("Applications/PeekForge.app/Contents/MacOS/PeekForge")
+        guard fm.fileExists(atPath: executable.path) else { throw UpdateError.invalidApplication }
         let plist = agents.appendingPathComponent("\(agentID).plist")
         let settings: [String: Any] = [
             "Label": agentID,
-            "ProgramArguments": [target.path, "--check-updates"],
+            "ProgramArguments": [executable.path, "--check-updates"],
             "StartInterval": 86_400,
             "RunAtLoad": true
         ]
         let data = try PropertyListSerialization.data(fromPropertyList: settings, format: .xml, options: 0)
         try data.write(to: plist, options: .atomic)
         let domain = "gui/\(getuid())"
-        _ = process("/bin/launchctl", ["bootout", domain, plist.path])
-        guard process("/bin/launchctl", ["bootstrap", domain, plist.path]) == 0 else { throw UpdateError.agentRegistration }
+        if process("/bin/launchctl", ["bootstrap", domain, plist.path]) == 0 { return }
+        if process("/bin/launchctl", ["print", "\(domain)/\(agentID)"]) == 0 { return }
+        throw UpdateError.agentRegistration
     }
 
     private static func checkAndInstall() async throws {
@@ -122,16 +116,7 @@ enum Updater {
             }
             try? fm.removeItem(at: stage)
         }
-        // Keep one previous version for recovery; refresh the detached updater binary.
-        if let executable = Bundle(url: target)?.executableURL {
-            let helper = fm.homeDirectoryForCurrentUser.appendingPathComponent("Library/Application Support/PeekForge/PeekForgeUpdater")
-            let next = helper.deletingLastPathComponent().appendingPathComponent("PeekForgeUpdater.new")
-            try? fm.removeItem(at: next)
-            if (try? fm.copyItem(at: executable, to: next)) != nil {
-                try? fm.removeItem(at: helper)
-                try? fm.moveItem(at: next, to: helper)
-            }
-        }
+        // Keep one previous version for recovery.
     }
 
     private static func safeAssetURL(_ url: URL) -> Bool {
